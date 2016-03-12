@@ -1,0 +1,6 @@
+<%= simple_form_for :income do |f| %>
+  <%= f.input :amount %>
+  <%= f.input :description %>
+  <%= f.association :income_categories %>
+  <%= f.button :submit %>
+<% end %>
