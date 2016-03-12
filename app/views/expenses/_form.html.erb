@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for @income do |f| %>
+  <%= simple_form_for @expense do |f| %>
   <p>
     <%= f.input :amount, as: :string %>
   </p>
@@ -10,7 +10,7 @@
   
   <p>
     <%= f.label :category %>
-    <%= collection_select(:income, :income_category_id, IncomeCategory.all, :id, :category_name)  %>
+    <%= collection_select(:expense, :expense_category_id, ExpenseCategory.all, :id, :category_name)  %>
   </p>
   
   <p>
