@@ -1,5 +1,6 @@
 class Income < ActiveRecord::Base
   self.table_name = 'incomes'
+  has_many :transactions, as: :transactionable
   belongs_to :income_category
   
   def self.get_category(category_id)

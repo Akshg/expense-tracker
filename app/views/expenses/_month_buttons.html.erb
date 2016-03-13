@@ -1,0 +1,18 @@
+<!--<b>Select Year:</b>-->
+<!--<%= form_tag("/expenses", method: "get") do %>-->
+<!--  <%= select_tag "year",  options_for_select(@list) %>-->
+<!--<%= submit_tag "Go", name: nil, class: 'btn' %>-->
+<!--<% end %>-->
+<!--<br><br>-->
+<%= link_to "Jan", expenses_path(month: '1'), class: 'btn btn-default', :month =>'jan' %>
+<%= link_to "Feb", expenses_path(month: '2'), class: 'btn btn-default' %>
+<%= link_to "Mar", expenses_path(month: '3'), class: 'btn btn-default' %>
+<%= link_to "Apr", expenses_path(month: '4'), class: 'btn btn-default' %>
+<%= link_to "May", expenses_path(month: '5'), class: 'btn btn-default' %>
+<%= link_to "Jun", expenses_path(month: '6'), class: 'btn btn-default' %>
+<%= link_to "Jul", expenses_path(month: '7'), class: 'btn btn-default' %>
+<%= link_to "Aug", expenses_path(month: '8'), class: 'btn btn-default' %>
+<%= link_to "Sep", expenses_path(month: '9'), class: 'btn btn-default' %>
+<%= link_to "Oct", expenses_path(month: '10'), class: 'btn btn-default' %>
+<%= link_to "Nov", expenses_path(month: '11'), class: 'btn btn-default' %>
+<%= link_to "Dec", expenses_path(month: '12'), class: 'btn btn-default' %> 

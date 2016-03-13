@@ -8,7 +8,9 @@
  <h1>Manage expenses</h1>
  <%= link_to "Add new expense", new_expense_path, class: 'btn btn-default' %>
  <br><br>
-
+<%= render 'month_buttons' %>
+<br><br>
+<%= @month %>
     <table class="table" id="datatable">
     <thead>
       <tr>
@@ -20,14 +22,16 @@
       </tr>
     </thead>
     <tbody>
-     <% @expenses.each do |expense| %>
-      <tr>
+     <% if @expenses %>
+      <% @expenses.each do |expense| %>
+       <tr>
         <td><%= expense.amount %></td>
         <td><%= expense.created_at.strftime("%a, %dth %b %Y %I:%M %p")  %></td>
         <td><%= expense.expense_category.category_name %></td>
         <td><%= expense.description %></td>
         <td><%= link_to "Edit", edit_expense_path(id: expense.id), class: 'btn btn-default' %></td>
-      </tr>
+       </tr>
+      <% end %>
      <% end %>
     </tbody>
   </table>

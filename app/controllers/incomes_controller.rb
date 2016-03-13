@@ -14,6 +14,7 @@ class IncomesController < ApplicationController
         @income = Income.new(income_params)
         @income.update_attributes(user_id: current_user.id)
         if @income.save
+          Transaction.save(@income, params[:controller], current_user.id)
          redirect_to incomes_path
         else
          render 'new'
