@@ -1,11 +1,19 @@
-<div class="container">
-    <h1>Manage expenses</h1>
-   <%= link_to "Add new expense", new_expense_path, class: 'btn btn-default' %>
- <br>
-      <table class="table">
+<script>
+    $(document).ready(function(){
+    $('#datatable').DataTable();
+    });
+</script>
+  
+  <div class="container">
+ <h1>Manage expenses</h1>
+ <%= link_to "Add new expense", new_expense_path, class: 'btn btn-default' %>
+ <br><br>
+
+    <table class="table" id="datatable">
     <thead>
       <tr>
         <th>Amount</th>
+        <th>Date</th>
         <th>Category</th>
         <th>Description</th>
         <th></th>
@@ -15,6 +23,7 @@
      <% @expenses.each do |expense| %>
       <tr>
         <td><%= expense.amount %></td>
+        <td><%= expense.created_at.strftime("%a, %dth %b %Y %I:%M %p")  %></td>
         <td><%= expense.expense_category.category_name %></td>
         <td><%= expense.description %></td>
         <td><%= link_to "Edit", edit_expense_path(id: expense.id), class: 'btn btn-default' %></td>

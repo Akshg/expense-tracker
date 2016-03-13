@@ -1,0 +1,1 @@
+Month: <%=select_tag "people", options_for_select(Date::MONTHNAMES.each_with_index.collect{|m, i| [m, i]}), prompt: 'Choose month', include_blank: false%> 

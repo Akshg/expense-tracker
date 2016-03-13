@@ -31,18 +31,17 @@ class IncomesController < ApplicationController
         else
             render 'edit'
         end
-        
     end
     
     def destroy
         @income = Income.find_by(id: params[:id])
         @income.destroy
-        redirect_to user_incomes_path
+        redirect_to incomes_path
     end
     
   private
   def income_params
-    params.require(:income).permit(:amount, :description, :income_category_id)
+    params.require(:income).permit(:amount, :description, :income_category_id, :created_at)
   end
     
 end

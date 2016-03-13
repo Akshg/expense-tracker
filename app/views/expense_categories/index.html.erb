@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Manage expense Categories</h1>
+     <%= link_to "Add New Expense Category", new_expense_category_path, class: 'btn btn-default' %>
+ <br><br>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @expense_categories.each do |expense_category| %>
+      <tr>
+        <td><%= expense_category.category_name %></td>
+        <td><%= link_to "Edit", edit_expense_category_path(id: expense_category.id), class: 'btn btn-default' %></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+</div>
