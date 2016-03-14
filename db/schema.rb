@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312083818) do
+ActiveRecord::Schema.define(version: 20160314084411) do
 
   create_table "expense_categories", force: :cascade do |t|
     t.string "category_name"
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 20160312083818) do
     t.integer  "transactionable_id"
     t.string   "transactionable_type"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.decimal  "balance",              precision: 10, scale: 4
   end
 
   add_index "transactions", ["transactionable_id"], name: "index_transactions_on_transactionable_id"

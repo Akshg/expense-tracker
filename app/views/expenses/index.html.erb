@@ -10,7 +10,6 @@
  <br><br>
 <%= render 'month_buttons' %>
 <br><br>
-<%= @month %>
     <table class="table" id="datatable">
     <thead>
       <tr>
@@ -18,6 +17,7 @@
         <th>Date</th>
         <th>Category</th>
         <th>Description</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -30,9 +30,13 @@
         <td><%= expense.expense_category.category_name %></td>
         <td><%= expense.description %></td>
         <td><%= link_to "Edit", edit_expense_path(id: expense.id), class: 'btn btn-default' %></td>
+        <td><%= link_to "Delete", expense_path(id: expense.id), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+ %></td>
        </tr>
       <% end %>
      <% end %>
     </tbody>
   </table>
+  <h1>Analytics</h1>
+  <%= pie_chart ExpenseCategory.includes(:expenses).where(expenses: {user_id: current_user.id}).group(:category_name).count %>
 </div>

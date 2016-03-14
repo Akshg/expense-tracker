@@ -12,10 +12,6 @@ class Expense < ActiveRecord::Base
   end
   
   def self.for_month(month)
-    if month == 0 || month == nil
-      month = 1
-    end
-    
     if  month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || 
          month == 10 || month == 12 
      end_date_of_month = 31

@@ -8,6 +8,8 @@
     <h1>Manage Incomes</h1>
    <%= link_to "Add new income", new_income_path, class: 'btn btn-default' %>
  <br><br>
+<%= render 'month_buttons' %>
+<br><br>
     <table class="table" id="datatable">
     <thead>
       <tr>
@@ -15,6 +17,7 @@
         <th>Date</th>
         <th>Category</th>
         <th>Description</th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -26,8 +29,12 @@
         <td><%= income.income_category.category_name %></td>
         <td><%= income.description %></td>
         <td><%= link_to "Edit", edit_income_path(id: income.id), class: 'btn btn-default' %></td>
+        <td><%= link_to "Delete", income_path(id: income.id), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+ %></td>
       </tr>
      <% end %>
     </tbody>
   </table>
+  <h1>Analytics</h1>
+  <%= pie_chart IncomeCategory.includes(:incomes).where(incomes: {user_id: current_user.id}).group(:category_name).count %>
 </div>

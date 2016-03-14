@@ -2,9 +2,9 @@ class ExpensesController < ApplicationController
     before_filter :authenticate_user!
     
     def index
-     @expenses = Expense.for_user(current_user.id)
-                        .for_month(params[:month].to_i)
-     @list =  [*(Expense.last.created_at.year.to_i).downto(Expense.first.created_at.year.to_i)]
+     @expenses = Expense.for_user(current_user.id) if params[:month].to_i  == 0 || params[:month] == nil
+     @expenses ||= Expense.for_user(current_user.id)
+                          .for_month(params[:month].to_i)
     end
     
     def new

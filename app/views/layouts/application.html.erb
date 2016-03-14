@@ -4,6 +4,7 @@
   <title>ExpenseTracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -17,7 +18,7 @@
       <li><a href="<%= expenses_path %>">Expense</a></li>
       <li><a href="<%= income_categories_path %>">Manage Income Categories</a></li>
       <li><a href="<%= expense_categories_path %>">Manage Expense Categories</a></li>
-      <li><a href="<%= transactions_path %>">Bank Statement</a></li>
+      <li><a href="<%= transactions_path %>">Transactions</a></li>
 
     </ul>
    

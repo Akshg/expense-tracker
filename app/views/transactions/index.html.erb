@@ -1,6 +1,12 @@
+<script>
+    $(document).ready(function(){
+    $('#datatable').DataTable();
+    });
+</script>
+
 <div class="container">
     <h1>Transactions</h1>
-    <table class="table">
+    <table class="table" id="datatable">
     <thead>
       <tr>
         <th>Date</th>
@@ -17,9 +23,12 @@
         <td><%= transaction.transactionable.description %></td>
         <td><%= transaction.transactionable.amount if transaction.transactionable_type == 'Expense' %></td>
         <td><%= transaction.transactionable.amount if transaction.transactionable_type == 'Income' %></td>
-        <td></td>
+        <td><%= transaction.balance%>
+  	   </td>
       </tr>
      <% end %>
     </tbody>
   </table>
+  <h1>Analytics</h1>
+  <%= pie_chart Transaction.where(user_id: current_user.id).group(:transactionable_type).count %>
 </div>

@@ -2,7 +2,9 @@ class IncomesController < ApplicationController
     before_filter :authenticate_user!
     
     def index
-        @incomes = Income.for_user(current_user.id)
+        @incomes = Income.for_user(current_user.id) if params[:month].to_i  == 0 || params[:month] == nil
+        @incomes ||= Income.for_user(current_user.id)
+                           .for_month(params[:month].to_i)
     end
     
     def new
