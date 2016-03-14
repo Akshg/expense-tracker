@@ -2,7 +2,7 @@ class ExpenseCategoriesController < ApplicationController
     before_filter :authenticate_user!
     
     def index
-      @expense_categories = ExpenseCategory.all
+      @expense_categories = ExpenseCategory.for_user(current_user.id)
     end
     
     def new
@@ -11,6 +11,7 @@ class ExpenseCategoriesController < ApplicationController
     
     def create
         @expense_category = ExpenseCategory.new(expense_category_params)
+        @expense_category.update_attributes(user_id: current_user.id)
         if @expense_category.save
          redirect_to expense_categories_path
         else

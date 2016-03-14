@@ -9,7 +9,6 @@ class IncomesController < ApplicationController
     
     def new
         @income = Income.new
-        @income_category = IncomeCategory.get_all_categories
     end
     
     def create

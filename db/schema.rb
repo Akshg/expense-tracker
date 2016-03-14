@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314084411) do
+ActiveRecord::Schema.define(version: 20160314113421) do
 
   create_table "expense_categories", force: :cascade do |t|
-    t.string "category_name"
+    t.string  "category_name"
+    t.integer "user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -27,7 +28,8 @@ ActiveRecord::Schema.define(version: 20160314084411) do
   end
 
   create_table "income_categories", force: :cascade do |t|
-    t.string "category_name"
+    t.string  "category_name"
+    t.integer "user_id"
   end
 
   create_table "incomes", force: :cascade do |t|

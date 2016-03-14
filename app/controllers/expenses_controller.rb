@@ -9,7 +9,6 @@ class ExpensesController < ApplicationController
     
     def new
      @expense = Expense.new
-     @expense_category = ExpenseCategory.get_all_categories
     end
     
     def create

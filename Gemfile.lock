@@ -96,6 +96,8 @@ GEM
     nokogiri (1.6.7.2-x86-mingw32)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
+    pg (0.18.4)
+    pg (0.18.4-x86-mingw32)
     rack (1.6.4)
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
@@ -187,6 +189,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   meta_request
+  pg
   rails (= 4.2.5.1)
   responders
   sass-rails (~> 5.0)

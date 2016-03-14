@@ -17,7 +17,7 @@ class Transaction < ActiveRecord::Base
                             transactionable_type: type,
                             user_id: user_id,
                             balance: balance)
-        else
+       else
           balance = Transaction.last.balance
           balance = balance + transaction.amount if type == 'Income'
   	      balance = balance - transaction.amount if type == 'Expense'
@@ -25,7 +25,7 @@ class Transaction < ActiveRecord::Base
                             transactionable_type: type,
                             user_id: user_id,
                             balance: balance)
-        end
+       end
    end
    
 end

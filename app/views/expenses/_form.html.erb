@@ -10,7 +10,7 @@
   
   <p>
     <%= f.label :category %>
-    <%= collection_select(:expense, :expense_category_id, ExpenseCategory.all, :id, :category_name)  %>
+    <%= collection_select(:expense, :expense_category_id, ExpenseCategory.for_user(current_user.id), :id, :category_name)  %>
   </p>
   
   <p>
