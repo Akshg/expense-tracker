@@ -18,7 +18,7 @@ class Transaction < ActiveRecord::Base
                             user_id: user_id,
                             balance: balance)
        else
-          balance = Transaction.last.balance
+          balance = Transaction.where(user_id: user_id).last.balance
           balance = balance + transaction.amount if type == 'Income'
   	      balance = balance - transaction.amount if type == 'Expense'
           Transaction.create(transactionable_id: transaction.id,
